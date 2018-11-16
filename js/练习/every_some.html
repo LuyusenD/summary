@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<script>
+	var arr1=[1,2,3,4,5];
+	var arr2=[2,4,6,8,10];
+	//判断数组当中每个元素都整除与2
+	console.log(
+		arr1.every((val)=>{
+			return val%2==0 //false
+		}),
+		arr2.every((val)=>{
+			return val%2==0 //true
+		})
+	)
+	//判断数组是否升序 1,2,3,
+	console.log(
+		arr1.every((val,i,arr1)=>{
+			return i<arr1.length-1?val<=arr1[i+1]:true
+		})
+	)
+	//every 会将每一个val进行判断,若有false 逻辑短路,直接返回false, 判断完成 都为true 则是true
+
+</script>
+</body>
+</html>

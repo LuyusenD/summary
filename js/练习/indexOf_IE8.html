@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+<script>
+  Array.prototype.indexOf=function(elem,from,arr=this){
+		from==undefined?from=0:from
+		for(var i=from;i<arr.length;i++){
+			if(elem===arr[i])
+				return i
+		}	
+		return -1
+
+  }
+
+  var arr=[5,5,2,7,3,6]
+  console.log(
+	arr.indexOf(5), //0 -1 3 0 5
+	arr.indexOf(4),
+	arr.indexOf(7),
+	arr.indexOf(5),
+	arr.indexOf(6)
+  )
+</script>
+</body>
+</html>
