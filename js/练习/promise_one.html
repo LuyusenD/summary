@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<script>
+ //等待函数
+  var await = function(scoped){
+	 return new Promise(function(open){
+		 setTimeout(function(){
+			open(scoped+'s')
+		 },scoped*1000)
+	 })
+  }
+
+  var promise = function(name){
+	  var p = new Promise(function(open){
+		  open(`Hi! This is ${name}`)
+	  })
+	  return {
+		 sleep:function(scoed){
+			p = p.then(function(msg){
+				console.log(msg)
+				return await(scoed)
+			})
+			return this
+		 },
+		 eat:function(scoed){
+			var pn = new Promise(function(open){
+				open(`Eat ${scoed} ~`)
+			})
+			p = p.then(function(msg){
+				console.log(msg)
+				return pn
+			})
+		 },
+		 pris:function(scoed){
+			return p.then(function(msg){
+				console.log(msg)
+			})
+		 }
+	  
+	  }
+  }
+  promise('Luyusen').sleep(2).eat('dinner')
+
+</script>
+</body>
+</html>

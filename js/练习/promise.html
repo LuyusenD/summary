@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<script>
+//红灯三秒执行一次
+//绿灯一秒执行一次
+//黄灯两秒执行一次
+//三灯交替亮 使用promise
+
+//定义调用函数
+function red(){
+	console.log('red')
+}
+function yellow(){
+	console.log('yellow')
+}
+function green(){
+	console.log('green')
+}
+
+//定义第一次亮灯函数
+var leghUp = function(timeer,col){ 
+	return new Promise(function(open,err){
+		setTimeout(function(){
+			col();
+			open()
+		},timeer)	
+	}); 
+ }
+
+var mypromise = new Promise(function(open){open();});
+
+var stop=function(pro){
+	pro.then(function(){
+		return leghUp(3000,red)
+	}).then(function(){
+		return leghUp(1000,green)
+	}).then(function(){
+		return leghUp(2000,yellow)
+	}).then(function(){
+		stop(mypromise)//递归
+	})
+}
+
+stop(mypromise)
+
+
+</script>	
+
+</body>
+</html>
