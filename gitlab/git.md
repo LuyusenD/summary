@@ -6,7 +6,10 @@
   3. git checkout -b 分支名称 // -b 是创建分支 并进入
   4. git log // 查看推送版本
   5. 如果出现 未清洁树 情况下是因为 已经commit 了 但是还没推送做修改
-  6. git stash // 可以将修改的东西暂存起来, 然后再把远程代码拉下来 再push这个暂存的 若add了  也等同于暂存
+  6. git stash // 可以将修改的东西暂存起来, 然后再把远程代码拉下来 再push这个暂存的 若add了  也等同于暂存 进行 pull date
+  7. git stash pop // 可以将暂存起来的 取出来
+  8. git merge 分支名(dev) --squash // 将dev拉下来的代码 合并到当前分支 log版本 只会压成一个 显示
+
 
 --------------------------------------------------------------------------
                                 设置密钥ssh
@@ -17,3 +20,14 @@
   4. cat ~/ssh/id_rsa.pub 查看公钥
   5. to github or gitlab bind ssh-keygen
   6. ssh -T git@github.com  检验密钥是否在工作
+
+--------------------------------------------------------------------------
+                                提示
+--------------------------------------------------------------------------
+  1. CONFLICT 提示拉取数据有冲突 需要去进行修改
+  2. Squash commit -- not updating HEAD
+     Automatic merge failed; fix conflicts and then commit the result.
+     在合并过程中有更改代码 并且 commit 之后  再远程拉代码下来 合并到本地会报一个
+     这样的错
+     意思是 : 自动合并部分失败; 需要更改当前的冲突之后 push , 再将代码重新合并一次
+     解决合并 就ok
