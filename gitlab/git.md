@@ -9,6 +9,8 @@
   6. git stash // 可以将修改的东西暂存起来, 然后再把远程代码拉下来 再push这个暂存的 若add了  也等同于暂存 进行 pull date
   7. git stash pop // 可以将暂存起来的 取出来
   8. git merge 分支名(dev) --squash // 将dev拉下来的代码 合并到当前分支 log版本 只会压成一个 显示
+  9. git branch -vv // 查看分支的父分支
+  10. git reset --hard origin/dev //强行把dev分支代码覆盖本地, 
 
 
 --------------------------------------------------------------------------
@@ -31,3 +33,11 @@
      这样的错
      意思是 : 自动合并部分失败; 需要更改当前的冲突之后 push , 再将代码重新合并一次
      解决合并 就ok
+
+----------------------------------------------------------------------------
+                                配置
+----------------------------------------------------------------------------
+  1. git config --global alias.st status #git st  // 取别名 快捷
+     git config --global alias.ck checkout #git co
+     git config --global alias.br branch #git br
+     git config --global alias.cm commit #git ci
