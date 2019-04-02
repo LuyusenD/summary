@@ -11,6 +11,8 @@
   8. git merge 分支名(dev) --squash // 将dev拉下来的代码 合并到当前分支 log版本 只会压成一个 显示
   9. git branch -vv // 查看分支的父分支
   10. git reset --hard origin/dev //强行把dev分支代码覆盖本地, 
+  11. git branch -D dev(分支名) 删除本地分支
+  12. git push origin --delete dev(分支名) 删除远程分支
 
 
 --------------------------------------------------------------------------
@@ -41,3 +43,15 @@
      git config --global alias.ck checkout #git co
      git config --global alias.br branch #git br
      git config --global alias.cm commit #git ci
+
+
+----------------------------------------------------------------------------
+                              小程序开发
+----------------------------------------------------------------------------
+  1. git clone url  #克隆项目
+  2. git checkout dev  #切换dev分支开发 master分支为测试环境
+  3. git status #查看当前工作区 修改未push的文件
+  4. git add . #添加到暂存区
+  5. git commit -m '这里写当前代码 开发的一个过程' #打一个版本
+  6. git push origin dev #推送代码到 dev分支
+  7. git log #查看本地版本
