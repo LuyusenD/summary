@@ -42,7 +42,7 @@
   1. git config --global alias.st status #git st  // 取别名 快捷
      git config --global alias.ck checkout #git co
      git config --global alias.br branch #git br
-     git config --global alias.cm commit #git ci
+     git config --global alias.cm commit #git cm
 
 
 ----------------------------------------------------------------------------
