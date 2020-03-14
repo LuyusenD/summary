@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div id="chat">
+    <ul id="chatList"></ul>
+    <form>
+        <input type="text" name="chatContent" id="chatContent" />
+        <input type="button" id="sendChatContent" value="发送" />
+    </form>
+  </div>
+  <script>
+    var url = window.location.protocol+'//'+window.location.host;
+    socket = io.connect(url);
+    // 点击“发送”，向服务器发送聊天信息
+    $('#sendChatContent').click(function (ev) {
+        var username = $('#username').text();
+        var chatContent = $('#chatContent').val().trim();
+        if(!chatContent){
+            return;
+        }
+        if(socket){
+            socket.emit('chat', {username: username, chatContent: chatContent});
+        }
+        $('#chatContent').val('');
+    });
+    // 监听服务器发送来的 chat 事件
+    socket.on('chat', function (chatinfo) {
+        $('#chatList').append('<li><span class="chatusername">' + chatinfo.username + '</span>：<span class="chatcontent">' + chatinfo.chatContent + '</span></li>');
+        $('#chatList').scrollTop(10000);
+    });
+  </script>
+</body>
+</html>

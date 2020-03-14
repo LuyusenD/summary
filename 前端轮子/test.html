@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<script src="Promise.js"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script>
+	new Promise((open,err) => {
+		$.ajax('https://api.han8.net/api/ian?type=json')
+		.then(v => open(v))
+		consol.log(1)
+	})
+	.then((v) => {
+		console.log(v)	
+	})
+	.catch(e => {
+		console.log(e)
+	})
+</script>
+</body>
+</html>
