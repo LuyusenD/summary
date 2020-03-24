@@ -9,6 +9,7 @@
 /muke-study/react/react-hook-demo/node_modules 
 /muke-study/react/react-router/node_modules 
 /muke-study/react/redux-demo/node_modules 
+/muke-study/react/dva-demo/node_modules 
 /chatRoom/node_modules 
 /.pnp
 .pnp.js
